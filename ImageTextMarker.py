@@ -29,6 +29,8 @@ class ImageTextMarker():
 
     def __update_image(self):
         text_img_height = self.__margin_top + (len(self.__lines)+1)*self.__word_height
+        if text_img_height < self.height:
+            text_img_height = self.height
         print("Image height: %d" % text_img_height)
         self.__text_img = Image.new('RGBA', (self.width, text_img_height), color=(255, 0, 0, 0))
         self.__draw = ImageDraw.Draw(self.__text_img)
